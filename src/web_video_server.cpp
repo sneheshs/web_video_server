@@ -169,8 +169,8 @@ bool WebVideoServer::handle_stream_viewer(const async_web_server_cpp::HttpReques
         "Server", "web_video_server").header("Content-type", "text/html;").write(connection);
 
     std::stringstream ss;
-    ss << "<html><head><title>" << topic << "</title></head><body>";
-    ss << "<h1>" << topic << "</h1>";
+    ss << "<html><head><title>" << topic << "</title><style>body { margin-top: 0px; margin-bottom: 0px; margin-right: 0px; margin-left: 0px; }</style></head><body >";
+    //ss << "<h1>" << topic << "</h1>";
     ss << stream_types_[type]->create_viewer(request);
     ss << "</body></html>";
     connection->write(ss.str());
